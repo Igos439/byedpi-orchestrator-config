@@ -26,6 +26,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Lowercase owner
+        id: owner
+        run: echo "name=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -34,5 +38,5 @@ jobs:
           push: true
           provenance: false
           tags: |
-            ghcr.io/${{ github.repository_owner }}/byedpi-orchestrator:latest
-            ghcr.io/${{ github.repository_owner }}/byedpi-orchestrator:sha-${{ github.sha }}
+            ghcr.io/${{ steps.owner.outputs.name }}/byedpi-orchestrator:latest
+            ghcr.io/${{ steps.owner.outputs.name }}/byedpi-orchestrator:sha-${{ github.sha }}
