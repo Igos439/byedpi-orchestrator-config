@@ -1,0 +1,28 @@
+{
+  "enabled": true,
+  "mode": "both",
+  "input": {
+    "source": "stdin",
+    "regex": {
+      "global": ".*\\[orchestrator\\] global \\| '(?P<key>.*?)' => score=(?P<score>-?\\d+\\.\\d+) avail=(?P<avail>\\d+\\.\\d+) median=(?P<median>\\d+\\.\\d+)",
+      "post_check": ".*\\[orchestrator\\] post-check \\| '(?P<key>.*?)' => score=(?P<score>-?\\d+\\.\\d+) avail=(?P<avail>\\d+\\.\\d+)"
+    }
+  },
+  "storage": {
+    "state_dir": "/app/state",
+    "cumulative_path": "/app/state/arg_stats.json",
+    "runs_dir": "/app/state/runs",
+    "dedup_checkpoint": "/app/state/arg_stats.ckpt.json"
+  },
+  "aggregation": {
+    "normalize": "none",
+    "categories": false,
+    "overlay_tag": true,
+    "dedup_mode": "linehash"
+  },
+  "flush": {
+    "every_lines": 10,
+    "every_seconds": 60,
+    "checkpoint_every": 100
+  }
+}

@@ -1,0 +1,5 @@
+state/
+*.log
+*.bak-*
+__pycache__/
+*.pyc
