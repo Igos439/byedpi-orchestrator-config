@@ -36,7 +36,7 @@ cp -f "$TARGET" "$TARGET.bak-entry" 2>/dev/null
 # идемпотентна и сама сообщает "already patched" ненулевым кодом.
 for p in "$APP/patch_orch.py" "$APP/patch_cache.py" "$APP"/patch_v2.py "$APP"/patch_v3.py \
          "$APP"/patch_v4.py "$APP"/patch_v5.py "$APP"/patch_v6.py "$APP"/patch_v7.py \
-         "$APP"/patch_v8.py "$APP"/patch_v9.py; do
+         "$APP"/patch_v8.py "$APP"/patch_v9.py "$APP"/patch_media_probe.py; do
     [ -f "$p" ] || continue
     if python3 "$p" "$TARGET" >>"$LOG" 2>&1; then
         log "применён $(basename "$p")"

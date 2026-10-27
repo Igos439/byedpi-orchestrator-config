@@ -582,8 +582,8 @@
       "heavy": true
     },
     "probe": {
-      "rr_min_throughput_kbps": 700,
-      "rr_range_bytes": 524288,
+      "rr_min_throughput_kbps": 300,
+      "rr_range_bytes": 1048576,
       "rr_max_duration_seconds": 7.0,
       "rr_reach_ttfb_max": 5.0,
       "rr_max_workers": 3,
@@ -623,7 +623,7 @@
       "media_min_avail": 0.49,
       "max_timeout_rate": 0.25,
       "p95_latency_max": 4.0,
-      "require_consecutive": 2,
+      "require_consecutive": 1,
       "max_extra_batches": 0,
       "time_budget_sec": 0,
       "normalize_key": true,
